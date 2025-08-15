@@ -2,13 +2,16 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, ChevronUp, X, Youtube, Linkedin, Facebook } from 'lucide-react';
+import { useNavigate} from 'react-router-dom';
+import { ChevronDown, ChevronUp, X, Youtube, Linkedin, Facebook } from
+ 'lucide-react';
 
 const Navbar = () => {
   const [isDispatchOpen, setIsDispatchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileDispatchOpen, setIsMobileDispatchOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
 
   const navItems = [
     { label: 'Dispatch', href: '#', hasDropdown: true },
@@ -115,7 +118,7 @@ const Navbar = () => {
             {/* Desktop */}
             <div className="hidden md:block flex-1">
               <div className="flex items-center justify-center space-x-8">
-                {navItems.map((item) => (
+                {/* {navItems.map((item) => (
                   <div key={item.label} className="relative">
                     {item.hasDropdown ? (
                       <div className="relative" ref={dropdownRef}>
@@ -166,7 +169,11 @@ const Navbar = () => {
                       </a>
                     )}
                   </div>
-                ))}
+                ))} */}
+                <ul className='flex gap-4'>
+                  <li className='cursor-pointer' onClick={()=>navigate('/contact')}>Contact</li>
+                  <li className='cursor-pointer' onClick={()=>navigate('/about')}>About</li>
+                </ul>
               </div>
             </div>
 
