@@ -49,7 +49,7 @@ const Footer = () => {
                   href="#"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
                 >
-                  Track dispatcher training
+                  Truck dispatcher training
                 </a>
 
                 <a

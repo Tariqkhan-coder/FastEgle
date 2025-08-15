@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ChevronUp, X, Youtube, Linkedin, Facebook } from
- 'lucide-react';
+  'lucide-react';
 
 const Navbar = () => {
   const [isDispatchOpen, setIsDispatchOpen] = useState(false);
@@ -12,6 +12,7 @@ const Navbar = () => {
   const [isMobileDispatchOpen, setIsMobileDispatchOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
+  const [isdropdownOpen, setIsDropdownOpen] = useState(false);
 
   const navItems = [
     { label: 'Dispatch', href: '#', hasDropdown: true },
@@ -106,7 +107,7 @@ const Navbar = () => {
 
   return (
     <>
-     <nav className="bg-[#002147] text-white fixed top-0 left-0 w-full z-50 shadow-lg">
+      <nav className="bg-[#002147] text-white  w-full z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex-shrink-0">
@@ -118,61 +119,45 @@ const Navbar = () => {
             {/* Desktop */}
             <div className="hidden md:block flex-1">
               <div className="flex items-center justify-center space-x-8">
-                {/* {navItems.map((item) => (
-                  <div key={item.label} className="relative">
-                    {item.hasDropdown ? (
-                      <div className="relative" ref={dropdownRef}>
-                        <button
-                          onClick={() => setIsDispatchOpen(!isDispatchOpen)}
-                          className="flex items-center text-white hover:text-orange-400 transition-colors duration-200 py-4 px-2 font-medium"
-                        >
-                          <span>{item.label}</span>
-                          {isDispatchOpen ? (
-                            <ChevronUp className="w-4 h-4 ml-1" />
-                          ) : (
-                            <ChevronDown className="w-4 h-4 ml-1" />
-                          )}
-                        </button>
-
-                        <AnimatePresence>
-                          {isDispatchOpen && (
-                            <motion.div
-                              variants={dropdownVariants}
-                              initial="hidden"
-                              animate="visible"
-                              exit="exit"
-                              className="absolute top-[calc(100%+1px)] left-0 w-56 bg-[#001930] text-white shadow-xl z-50 border-t border-orange-400"
-                              style={{ transformOrigin: 'top' }}
-                            >
-                              <div className="py-2">
-                                {dispatchDropdownItems.map((dropdownItem) => (
-                                  <a
-                                    key={dropdownItem.label}
-                                    href={dropdownItem.href}
-                                    className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200"
-                                  >
-                                    <span className="text-yellow-400 mr-3">›</span>
-                                    {dropdownItem.label}
-                                  </a>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <a
-                        href={item.href}
-                        className="text-white hover:text-orange-400 transition-colors duration-200 py-4 px-2 font-medium"
+                <ul className='flex justify-between items-center space-x-8 relative'>
+                  <li className='cursor-pointer flex items-center text-white hover:text-orange-400 font-bold' onClick={() => setIsDispatchOpen(!isDispatchOpen)}>Dispatch
+                    <div>
+                      {isDispatchOpen ? (
+                        <ChevronUp className="w-4 h-4 ml-1" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 ml-1" />
+                      )}
+                    </div>
+                  </li>
+                  <AnimatePresence>
+                    {isDispatchOpen && (
+                      <motion.div
+                        variants={dropdownVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="exit"
+                        className="absolute top-[calc(100%+1px)] w-56 bg-[#001930] text-white shadow-xl z-50 border-t border-orange-400"
+                        style={{ transformOrigin: 'top' }}
                       >
-                        {item.label}
-                      </a>
+                        <div className="py-2">
+                          {dispatchDropdownItems.map((dropdownItem) => (
+                            <a
+                              key={dropdownItem.label}
+                              href={dropdownItem.href}
+                              className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200"
+                            >
+                              <span className="text-yellow-400 mr-3">›</span>
+                              {dropdownItem.label}
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
                     )}
-                  </div>
-                ))} */}
-                <ul className='flex gap-4'>
-                  <li className='cursor-pointer' onClick={()=>navigate('/contact')}>Contact</li>
-                  <li className='cursor-pointer' onClick={()=>navigate('/about')}>About</li>
+                  </AnimatePresence>
+                  <li className='cursor-pointer text-white hover:text-orange-400 font-bold' onClick={() => navigate('/factoring-services')}>Factoring</li>
+                  <li className='cursor-pointer text-white hover:text-orange-400 font-bold' onClick={() => navigate('/prices')}>Prices</li>
+                  <li className='cursor-pointer text-white hover:text-orange-400 font-bold' onClick={() => navigate('/about')}>About</li>
+                  <li className='cursor-pointer text-white hover:text-orange-400 font-bold' onClick={() => navigate('/contact')}>Contacts</li>
                 </ul>
               </div>
             </div>
@@ -199,19 +184,19 @@ const Navbar = () => {
                 className="text-white hover:text-gray-300 transition-colors duration-200"
               >
                 <img
-                    src="./src/assets/menu.svg"
-                    alt="Menu"
-                    className="w-6 h-6 invert"
-                    onError={(e) => {
-                      e.currentTarget.outerHTML = `
+                  src="./src/assets/menu.svg"
+                  alt="Menu"
+                  className="w-6 h-6 invert"
+                  onError={(e) => {
+                    e.currentTarget.outerHTML = `
                         <div class="w-6 h-6 flex flex-col justify-center space-y-1">
                           <div class="w-6 h-0.5 bg-white"></div>
                           <div class="w-6 h-0.5 bg-white"></div>
                           <div class="w-6 h-0.5 bg-white"></div>
                         </div>
                       `;
-                    }}
-                  />
+                  }}
+                />
 
               </button>
             </div>
@@ -259,55 +244,50 @@ const Navbar = () => {
 
               {/* Navigation items */}
               <div className="px-6">
-                {navItems.map((item) => (
-                  <div key={item.label} className="mb-2">
-                    {item.hasDropdown ? (
-                      <div>
-                        <button
-                          onClick={() => setIsMobileDispatchOpen(!isMobileDispatchOpen)}
-                          className="flex items-center w-full text-left text-white text-xl font-medium py-2 hover:text-orange-400 transition-colors duration-200"
-                        >
-                          <span>{item.label}</span>
-                          {isMobileDispatchOpen ? (
-                            <ChevronUp className="w-5 h-5 ml-2" />
+                <div className=" space-x-8">
+                  <ul className=' space-x-8 relative'>
+                    <div className=" ">
+                      <li className='cursor-pointer flex items-center text-white hover:text-orange-400 font-bold py-2' onClick={() => setIsDispatchOpen(!isDispatchOpen)}>Dispatch
+                        <div>
+                          {isDispatchOpen ? (
+                            <ChevronUp className="w-4 h-4 ml-1" />
                           ) : (
-                            <ChevronDown className="w-5 h-5 ml-2" />
+                            <ChevronDown className="w-4 h-4 ml-1" />
                           )}
-                        </button>
-                        <AnimatePresence>
-                          {isMobileDispatchOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="space-y-1"
-                            >
+                        </div>
+                      </li>
+                      <AnimatePresence>
+                        {isDispatchOpen && (
+                          <motion.div
+                            variants={dropdownVariants}
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            className="  w-56  text-white shadow-xl z-50 border-t border-orange-400"
+                            style={{ transformOrigin: 'top' }}
+                          >
+                            <div className="py-2">
                               {dispatchDropdownItems.map((dropdownItem) => (
                                 <a
                                   key={dropdownItem.label}
                                   href={dropdownItem.href}
-                                  className="flex items-center text-white text-lg py-1 hover:text-orange-400 transition-colors duration-200"
-                                  onClick={() => setIsMobileMenuOpen(false)}
+                                  className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200"
                                 >
-                                  <span className="text-orange-400 mr-3">›</span>
+                                  <span className="text-yellow-400 mr-3">›</span>
                                   {dropdownItem.label}
                                 </a>
                               ))}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <a
-                        href={item.href}
-                        className="block text-white text-xl font-medium py-2 hover:text-orange-400 transition-colors duration-200"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    )}
-                  </div>
-                ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/factoring-services')}>Factoring</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/prices')}>Prices</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/about')}>About</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/contact')}>Contacts</li>
+                  </ul>
+                </div>
               </div>
 
               <div className="p-6 space-y-4 text-center mt-auto">
