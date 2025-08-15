@@ -1,0 +1,117 @@
+/* ----------------------------------
+   Layout & Wrapper
+---------------------------------- */
+.page-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ----------------------------------
+   Logo Styles
+---------------------------------- */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  transition: filter 300ms;
+  will-change: filter;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #ff6b00); /* orange hover */
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+/* Spinning animation */
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+/* ----------------------------------
+   Card Styling
+---------------------------------- */
+.card {
+  background-color: #132c44;
+  color: #ffffff;
+  padding: 2em;
+  border-radius: 1rem;
+}
+
+/* ----------------------------------
+   Typography
+---------------------------------- */
+.read-the-docs {
+  color: #888;
+}
+
+/* ----------------------------------
+   Swiper (Testimonial) Styles
+---------------------------------- */
+.testimonials-swiper .swiper-pagination {
+  bottom: 5px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  z-index: 10;
+}
+
+.testimonials-swiper .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #d1d5db !important; /* Tailwind gray-300 */
+  opacity: 1;
+  transition: all 0.3s;
+}
+
+.testimonials-swiper .swiper-pagination-bullet-active,
+.swiper-pagination-bullet-active {
+  background: #f97316 !important; /* Tailwind orange-500 */
+  transform: scale(1.2);
+}
+
+/* Swiper navigation buttons */
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+  color: #f97316;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  margin: 0 1px;
+}
+
+.testimonials-swiper .swiper-button-next:hover,
+.testimonials-swiper .swiper-button-prev:hover {
+  color: #ea580c;
+}
+
+/* ----------------------------------
+   Animation Utilities
+---------------------------------- */
+.fade-in {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

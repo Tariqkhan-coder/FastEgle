@@ -1,0 +1,358 @@
+// Updated Navbar.jsx
+
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown, ChevronUp, X, Youtube, Linkedin, Facebook } from 'lucide-react';
+
+const Navbar = () => {
+  const [isDispatchOpen, setIsDispatchOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDispatchOpen, setIsMobileDispatchOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const navItems = [
+    { label: 'Dispatch', href: '#', hasDropdown: true },
+    { label: 'Factoring', href: '/factoring-services' },
+    { label: 'Prices', href: '/prices' },
+    { label: 'About', href: '/about' },
+    { label: 'Contacts', href: '/contact' },
+  ];
+
+  const dispatchDropdownItems = [
+    { label: 'Box truck', href: '/box-truck' },
+    { label: 'Dry Van', href: '/dry-van' },
+    { label: 'Reefer', href: '/refeer' },
+    { label: 'Power Only', href: '/power-only' },
+    { label: 'Hotshot', href: '/hotshot' },
+    { label: 'Flat Bed / Step Deck', href: '/flat-bed-step-deck' },
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // outside clicks for dropdown
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) && !isMobileMenuOpen) {
+        setIsDispatchOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isMobileMenuOpen]);
+
+  // Resetting states on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+        setIsMobileDispatchOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const dropdownVariants = {
+    hidden: {
+      opacity: 0,
+      y: -10,
+      scaleY: 0.95,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scaleY: 1,
+      transition: {
+        duration: 0.2,
+        ease: 'easeOut',
+      },
+    },
+    exit: {
+      opacity: 0,
+      y: -10,
+      scaleY: 0.95,
+      transition: {
+        duration: 0.15,
+        ease: 'easeIn',
+      },
+    },
+  };
+
+  const mobileMenuVariants = {
+    closed: {
+      opacity: 0,
+      y: '-100%',
+      transition: {
+        duration: 0.4,
+        ease: 'easeInOut',
+      },
+    },
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: 'easeInOut',
+      },
+    },
+  };
+
+  return (
+    <>
+     <nav className="bg-[#002147] text-white fixed top-0 left-0 w-full z-50 shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex-shrink-0">
+              <a href="/" className="block">
+                <span className="text-white hover:text-orange-400 font-bold text-xl">FastEagleLogistics</span>
+              </a>
+            </div>
+
+            {/* Desktop */}
+            <div className="hidden md:block flex-1">
+              <div className="flex items-center justify-center space-x-8">
+                {navItems.map((item) => (
+                  <div key={item.label} className="relative">
+                    {item.hasDropdown ? (
+                      <div className="relative" ref={dropdownRef}>
+                        <button
+                          onClick={() => setIsDispatchOpen(!isDispatchOpen)}
+                          className="flex items-center text-white hover:text-orange-400 transition-colors duration-200 py-4 px-2 font-medium"
+                        >
+                          <span>{item.label}</span>
+                          {isDispatchOpen ? (
+                            <ChevronUp className="w-4 h-4 ml-1" />
+                          ) : (
+                            <ChevronDown className="w-4 h-4 ml-1" />
+                          )}
+                        </button>
+
+                        <AnimatePresence>
+                          {isDispatchOpen && (
+                            <motion.div
+                              variants={dropdownVariants}
+                              initial="hidden"
+                              animate="visible"
+                              exit="exit"
+                              className="absolute top-[calc(100%+1px)] left-0 w-56 bg-[#001930] text-white shadow-xl z-50 border-t border-orange-400"
+                              style={{ transformOrigin: 'top' }}
+                            >
+                              <div className="py-2">
+                                {dispatchDropdownItems.map((dropdownItem) => (
+                                  <a
+                                    key={dropdownItem.label}
+                                    href={dropdownItem.href}
+                                    className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200"
+                                  >
+                                    <span className="text-yellow-400 mr-3">›</span>
+                                    {dropdownItem.label}
+                                  </a>
+                                ))}
+                              </div>
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-white hover:text-orange-400 transition-colors duration-200 py-4 px-2 font-medium"
+                      >
+                        {item.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden md:block flex-shrink-0">
+              <a
+                href="tel:+19292141820"
+                className="text-orange-400 transition-colors duration-200 font-medium"
+              >
+                +1 (929) 214-1820
+              </a>
+            </div>
+
+            {/* Mobile button */}
+            <div className="md:hidden flex items-center space-x-4">
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white font-medium hover:text-orange-400 transition-colors duration-200"
+              >
+                MENU
+              </button>
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="text-white hover:text-gray-300 transition-colors duration-200"
+              >
+                <img
+                    src="./src/assets/menu.svg"
+                    alt="Menu"
+                    className="w-6 h-6 invert"
+                    onError={(e) => {
+                      e.currentTarget.outerHTML = `
+                        <div class="w-6 h-6 flex flex-col justify-center space-y-1">
+                          <div class="w-6 h-0.5 bg-white"></div>
+                          <div class="w-6 h-0.5 bg-white"></div>
+                          <div class="w-6 h-0.5 bg-white"></div>
+                        </div>
+                      `;
+                    }}
+                  />
+
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            variants={mobileMenuVariants}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            className="fixed inset-0 z-[100] md:hidden"
+            style={{
+              backgroundImage: 'url(https://resolute-logistics.com/optimized/uploads/menu/menu_bg_1366.jpg)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat'
+            }}
+          >
+
+            <div className={`relative h-full flex flex-col ${isMobileDispatchOpen ? 'overflow-y-auto' : 'overflow-hidden'}`}>
+              <div className="flex justify-between items-center p-6">
+                <a href="/" className="block">
+                  <div className="text-orange-400 font-bold text-xl">FastEagleLogistics</div>
+                </a>
+                <div className="flex items-center space-x-4">
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-orange-400 font-medium hover:text-orange-500 transition-colors duration-200"
+                  >
+                    CLOSE
+                  </button>
+                  <button
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-orange-400 hover:text-orange-500 transition-colors duration-200"
+                  >
+                    <X className="w-6 h-6" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Navigation items */}
+              <div className="px-6">
+                {navItems.map((item) => (
+                  <div key={item.label} className="mb-2">
+                    {item.hasDropdown ? (
+                      <div>
+                        <button
+                          onClick={() => setIsMobileDispatchOpen(!isMobileDispatchOpen)}
+                          className="flex items-center w-full text-left text-white text-xl font-medium py-2 hover:text-orange-400 transition-colors duration-200"
+                        >
+                          <span>{item.label}</span>
+                          {isMobileDispatchOpen ? (
+                            <ChevronUp className="w-5 h-5 ml-2" />
+                          ) : (
+                            <ChevronDown className="w-5 h-5 ml-2" />
+                          )}
+                        </button>
+                        <AnimatePresence>
+                          {isMobileDispatchOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="space-y-1"
+                            >
+                              {dispatchDropdownItems.map((dropdownItem) => (
+                                <a
+                                  key={dropdownItem.label}
+                                  href={dropdownItem.href}
+                                  className="flex items-center text-white text-lg py-1 hover:text-orange-400 transition-colors duration-200"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  <span className="text-orange-400 mr-3">›</span>
+                                  {dropdownItem.label}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="block text-white text-xl font-medium py-2 hover:text-orange-400 transition-colors duration-200"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 space-y-4 text-center mt-auto">
+                <a
+                  href="mailto:hello@resolute-logistics.com"
+                  className="block text-white text-lg hover:text-orange-400 transition-colors duration-200"
+                >
+                  hello@resolute-logistics.com
+                </a>
+                <a
+                  href="tel:+19292141820"
+                  className="block text-white text-xl font-medium hover:text-orange-400 transition-colors duration-200"
+                >
+                  +1 (929) 214-1820
+                </a>
+                <button
+                  className="bg-transparent border-2 border-orange-400 text-white px-6 py-2 rounded-full hover:bg-orange-400 hover:text-black transition-all duration-200"
+                  onClick={() => window.location.href = 'tel:+19292141820'}
+                >
+                  Request a call
+                </button>
+
+                <div className="flex justify-center space-x-4 mt-6">
+                  <a
+                    href="#"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="#"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    aria-label="LinkedIn"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href="#"
+                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
+                    aria-label="Facebook"
+                  >
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+};
+
+export default Navbar;
