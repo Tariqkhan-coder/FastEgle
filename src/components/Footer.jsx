@@ -159,7 +159,8 @@ const Footer = () => {
                   className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 rounded"
                   aria-label="LinkedIn"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-4 h-4"
+                   />
                 </a>
                 <a
                   href="#"
