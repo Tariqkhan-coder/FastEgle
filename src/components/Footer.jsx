@@ -131,10 +131,10 @@ const Footer = () => {
               <div className="text-orange-400 text-base font-semibold mb-4">USA, CANADA</div>
               <div className="mb-4">
                 <a
-                  href="tel:+19292141820"
+                  href="tel:+19568579996"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block mb-2"
                 >
-                  +1 (929) 214-1820
+                  +1 (956) 857-9996
                 </a>
               </div>
               <div className="mb-6">

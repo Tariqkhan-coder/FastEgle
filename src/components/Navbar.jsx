@@ -31,6 +31,79 @@ const Navbar = () => {
     { label: 'Flat Bed / Step Deck', href: '/flat-bed-step-deck' },
   ];
 
+  const Factoring = () => {
+    setIsMobileMenuOpen(false)
+    navigate('/factoring-services')
+  }
+  const Prices = () => {
+    setIsMobileMenuOpen(false)
+    navigate('/prices')
+  }
+  const About = () => {
+    setIsMobileMenuOpen(false)
+    navigate('/about')
+  }
+  const Contacts = () => {
+    setIsMobileMenuOpen(false)
+    navigate('/contact')
+  }
+
+  const Boxturck = () => {
+    setIsDispatchOpen(false);
+    navigate('/box-truck')
+  }
+  const Boxturck1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/box-truck')
+  }
+  const Dryvan = () => {
+    setIsDispatchOpen(false);
+    navigate('/dry-van')
+  }
+  const Dryvan1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/dry-van')
+  }
+  const Reefer1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/refeer')
+  }
+  const Reefer = () => {
+    setIsDispatchOpen(false);
+    navigate('/refeer')
+  }
+  const PowerOnly = () => {
+    setIsDispatchOpen(false);
+    navigate('/power-only')
+  }
+  const PowerOnly1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/power-only')
+  }
+  const Hotshot = () => {
+    setIsDispatchOpen(false);
+    navigate('/hotshot')
+  }
+  const Hotshot1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/hotshot')
+  }
+  const FlatBed1 = () => {
+    setIsMobileMenuOpen(false)
+    setIsDispatchOpen(false);
+    navigate('/flat-bed-step-deck')
+  }
+  const FlatBed = () => {
+    setIsDispatchOpen(false);
+    navigate('/flat-bed-step-deck')
+  }
+
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       // outside clicks for dropdown
@@ -140,16 +213,15 @@ const Navbar = () => {
                         style={{ transformOrigin: 'top' }}
                       >
                         <div className="py-2">
-                          {dispatchDropdownItems.map((dropdownItem) => (
-                            <a
-                              key={dropdownItem.label}
-                              href={dropdownItem.href}
-                              className="flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200"
-                            >
-                              <span className="text-yellow-400 mr-3">›</span>
-                              {dropdownItem.label}
-                            </a>
-                          ))}
+                          <ul className='cursor-pointer'>
+                            <li className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'
+                              onClick={Boxturck}> <span className="text-yellow-400 mr-3">›</span> Box truck</li>
+                            <li onClick={Dryvan} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Dry Van</li>
+                            <li onClick={Reefer} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Reefer</li>
+                            <li onClick={PowerOnly} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Power Only</li>
+                            <li onClick={Hotshot} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Hotshot</li>
+                            <li onClick={FlatBed} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Flat Bed/Step Deck</li>
+                          </ul>
                         </div>
                       </motion.div>
                     )}
@@ -164,10 +236,10 @@ const Navbar = () => {
 
             <div className="hidden md:block flex-shrink-0">
               <a
-                href="tel:+19292141820"
+                href="tel:+19568579996"
                 className="text-orange-400 transition-colors duration-200 font-medium"
               >
-                +1 (929) 214-1820
+                +1 (956) 857-9996
               </a>
             </div>
 
@@ -227,12 +299,12 @@ const Navbar = () => {
                   <div className="text-orange-400 font-bold text-xl">FastEagleLogistics</div>
                 </a>
                 <div className="flex items-center space-x-4">
-                  <button
+                  {/* <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-orange-400 font-medium hover:text-orange-500 transition-colors duration-200"
                   >
                     CLOSE
-                  </button>
+                  </button> */}
                   <button
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="text-orange-400 hover:text-orange-500 transition-colors duration-200"
@@ -267,7 +339,7 @@ const Navbar = () => {
                             style={{ transformOrigin: 'top' }}
                           >
                             <div className="py-2">
-                              {dispatchDropdownItems.map((dropdownItem) => (
+                              {/* {dispatchDropdownItems.map((dropdownItem) => (
                                 <a
                                   key={dropdownItem.label}
                                   href={dropdownItem.href}
@@ -276,16 +348,27 @@ const Navbar = () => {
                                   <span className="text-yellow-400 mr-3">›</span>
                                   {dropdownItem.label}
                                 </a>
-                              ))}
+                              ))} */}
+                              <div className="py-2">
+                                <ul className='cursor-pointer'>
+                                  <li className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'
+                                    onClick={Boxturck1}> <span className="text-yellow-400 mr-3">›</span> Box truck</li>
+                                  <li onClick={Dryvan1} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Dry Van</li>
+                                  <li onClick={Reefer1} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Reefer</li>
+                                  <li onClick={PowerOnly1} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Power Only</li>
+                                  <li onClick={Hotshot1} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Hotshot</li>
+                                  <li onClick={FlatBed1} className='"flex items-center px-4 py-3 text-sm text-white hover:bg-gray-800 transition-all duration-200'> <span className="text-yellow-400 mr-3">›</span> Flat Bed/Step Deck</li>
+                                </ul>
+                              </div>
                             </div>
                           </motion.div>
                         )}
                       </AnimatePresence>
                     </div>
-                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/factoring-services')}>Factoring</li>
-                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/prices')}>Prices</li>
-                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/about')}>About</li>
-                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={() => navigate('/contact')}>Contacts</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={Factoring}>Factoring</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={Prices}>Prices</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={About}>About</li>
+                    <li className='cursor-pointer text-white hover:text-orange-400 font-bold py-2' onClick={Contacts}>Contacts</li>
                   </ul>
                 </div>
               </div>
@@ -298,14 +381,14 @@ const Navbar = () => {
                   hello@resolute-logistics.com
                 </a>
                 <a
-                  href="tel:+19292141820"
+                  href="tel:+19568579996"
                   className="block text-white text-xl font-medium hover:text-orange-400 transition-colors duration-200"
                 >
-                  +1 (929) 214-1820
+                  +1 (956) 857-9996
                 </a>
                 <button
                   className="bg-transparent border-2 border-orange-400 text-white px-6 py-2 rounded-full hover:bg-orange-400 hover:text-black transition-all duration-200"
-                  onClick={() => window.location.href = 'tel:+19292141820'}
+                  onClick={() => window.location.href = 'tel:+19568579996'}
                 >
                   Request a call
                 </button>

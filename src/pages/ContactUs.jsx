@@ -14,7 +14,7 @@ function Contact() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div 
+      <div
         className="relative h-[50vh] sm:h-[55vh] md:h-[60vh] bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('https://resolute-logistics.com/optimized/uploads/design/contacts/contact_bg_1366@2x.webp')`,
@@ -22,7 +22,7 @@ function Contact() {
         }}
       >
         <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4 sm:px-6 lg:px-8">
-          <div 
+          <div
             className="absolute top-4 sm:top-6 md:top-8 left-1/2 transform -translate-x-1/2 text-xs sm:text-sm text-gray-400"
             data-aos="fade-down"
           >
@@ -33,7 +33,7 @@ function Contact() {
             <span>Contacts</span>
           </div>
 
-          <h1 
+          <h1
             className="text-3xl sm:text-4xl md:text-5xl mb-2 sm:mb-3 text-center font-bold"
             data-aos="fade-up"
           >
@@ -41,7 +41,7 @@ function Contact() {
           </h1>
 
           {/* Description */}
-          <div 
+          <div
             className="max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl text-center"
             data-aos="fade-up"
             data-aos-delay="200"
@@ -56,15 +56,16 @@ function Contact() {
             <div className="text-xs sm:text-sm mb-3 sm:mb-4 space-y-2">
               <div className="flex items-center justify-center space-x-2" data-aos="fade-up" data-aos-delay="300">
                 <div className="font-medium text-center">
-                  <span className="whitespace-nowrap">📍 Address:</span> 11443 SAVANNAH CREEK DR CHARLOTTE, NC 28273
+                  <span className="whitespace-nowrap">📍 Address:</span> 3303 GEIBERGER COURT
+                  LAREDO, TX   78045
                 </div>
               </div>
-              
+
               <div className="flex items-center justify-center space-x-2" data-aos="fade-up" data-aos-delay="400">
                 <span className="font-medium">☎️ Phone: </span>
                 +1 (800) 834-1898
               </div>
-              
+
               <div className="flex items-center justify-center space-x-2" data-aos="fade-up" data-aos-delay="500">
                 <span className="font-medium">✉️ Mail: </span>
                 hello@resolute-logistics.com
@@ -79,7 +80,7 @@ function Contact() {
       </div>
 
       {/* Map */}
-      <div 
+      <div
         className="w-full h-[40vh] sm:h-[50vh] md:h-[60vh]"
         data-aos="fade-up"
       >
