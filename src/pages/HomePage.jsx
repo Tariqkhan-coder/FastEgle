@@ -54,7 +54,7 @@ function HomePage() {
     AOS.init({
       duration: 1000,
       once: false,
-      mirror:true
+      mirror: true
     });
   }, []);
 
@@ -107,7 +107,7 @@ function HomePage() {
 
         <div className="relative z-10 w-full h-full">
           {/* Main Content */}
-          <div 
+          <div
             className="absolute top-1/3 left-4 sm:left-8 md:left-16 lg:left-60 transform -translate-y-1/2 max-w-2xl"
             data-aos="fade-up"
             data-aos-duration="1500"
@@ -129,27 +129,43 @@ function HomePage() {
             </div>
           </div>
 
-          <div 
-           className="absolute bottom-24 sm:bottom-28 md:bottom-32 lg:bottom-36 left-4 sm:left-8 md:left-16 lg:left-60 hidden lg:block"
+          <div
+            className="absolute bottom-24 sm:bottom-28 md:bottom-32 lg:bottom-36 left-4 sm:left-8 md:left-16 lg:left-60 hidden lg:block"
             data-aos="fade-up"
             data-aos-delay="500"
           >
             <div className="flex items-center">
               <div className="flex space-x-4 sm:space-x-6 mr-8">
-                {[
-                  { icon: Youtube, label: 'YouTube' },
-                  { icon: Linkedin, label: 'LinkedIn' },
-                  { icon: Facebook, label: 'Facebook' },
-                ].map(({ icon: Icon, label }, i) => (
+                <div className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded">
                   <a
-                    key={i}
-                    href="#"
-                    className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded"
-                    aria-label={label}
+                    href="https://www.fasteaglelogistics.com/"
+                    className="text-white "
+                    target='_blank'
+                    aria-label="YouTube Channel"
                   >
-                    <Icon className="w-4 h-4" />
+                    <Youtube className="" />
                   </a>
-                ))}
+                </div>
+                <div className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded">
+                  <a
+                    href="https://www.linkedin.com/company/resolute-logistics"
+                    className="text-white"
+                    target='_blank'
+                    aria-label="LinkedIn Profile"
+                  >
+                    <Linkedin className="" />
+                  </a>
+                </div>
+                <div className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded">
+                  <a
+                    href="https://www.facebook.com/resolute.logistics"
+                    className="text-white"
+                    target='_blank'
+                    aria-label="Facebook Page"
+                  >
+                    <Facebook className="" />
+                  </a>
+                </div>
               </div>
               <hr className="border-t border-orange-400 w-32 sm:w-48" />
             </div>
@@ -168,7 +184,7 @@ function HomePage() {
       </section>
 
 
-        {/* Section 2 - What We Do */}
+      {/* Section 2 - What We Do */}
       <TruckDispatchingSection />
 
       {/* Section 3 - Specialities */}
@@ -189,7 +205,7 @@ function HomePage() {
           }}
         />
         <div className="absolute inset-0 bg-black/30" />
-        
+
         <div className="relative z-10 max-w-7xl mx-auto">
 
           <div className="text-center mb-16" data-aos="fade-up">
@@ -215,28 +231,28 @@ function HomePage() {
 
             <div className="text-white space-y-6" data-aos="fade-left">
               <p className="text-base lg:text-lg leading-relaxed">
-                We provide dispatching services truckers trust in because we are 
-                professionals with years of experience in the brokerage and 
-                deep knowledge of ins and outs. We know the specifics of the 
-                equipment along with federal and local regulations. Our 
-                dispatcher company constantly monitors freight rates, load 
-                boards, brokers, and shippers to spot the best deals for our 
+                We provide dispatching services truckers trust in because we are
+                professionals with years of experience in the brokerage and
+                deep knowledge of ins and outs. We know the specifics of the
+                equipment along with federal and local regulations. Our
+                dispatcher company constantly monitors freight rates, load
+                boards, brokers, and shippers to spot the best deals for our
                 clientage.
               </p>
-              
+
               <p className="text-base lg:text-lg leading-relaxed">
-                Unlike many other truck dispatch companies, Resolute Logistics 
-                focuses on a comprehensive approach and provides end-to-end 
-                services to relieve drivers from the stress of hunting for loads, 
-                making calls, doing paperwork, or struggling for payment. Our 
-                truck dispatch service ensures ongoing training for dispatchers 
-                and encourages them to anticipate problems before they arise. 
-                We foster agility, effective teamwork, and a responsible attitude 
+                Unlike many other truck dispatch companies, Resolute Logistics
+                focuses on a comprehensive approach and provides end-to-end
+                services to relieve drivers from the stress of hunting for loads,
+                making calls, doing paperwork, or struggling for payment. Our
+                truck dispatch service ensures ongoing training for dispatchers
+                and encourages them to anticipate problems before they arise.
+                We foster agility, effective teamwork, and a responsible attitude
                 to drivers under our care.
               </p>
-              
+
               <p className="text-xl lg:text-2xl font-semibold text-orange-400 mt-8">
-                Our aim is to keep your trucks busy and smooth the way for 
+                Our aim is to keep your trucks busy and smooth the way for
                 your growth!
               </p>
 
@@ -248,7 +264,7 @@ function HomePage() {
                 >
                   Start Trucking Dispatch
                 </button>
-                <button 
+                <button
                   className="px-8 py-3 bg-orange-400 text-white rounded-full hover:bg-orange-500 transition duration-300 font-semibold"
                   onClick={handleStartDispatchClick}
                 >
@@ -276,15 +292,15 @@ function HomePage() {
         id="prices"
         className="bg-[#002140] w-full overflow-hidden"
       >
-      { <ServicesTwo /> }
+        {<ServicesTwo />}
       </section>
 
       {/* Section 7 - Testimonials */}
-        <section
+      <section
         id="testimonials"
         className="py-20 px-10 bg-[#002147] text-white text-center"
       >
-      { <Testimonials />} 
+        {<Testimonials />}
       </section>
 
 
@@ -333,7 +349,7 @@ function HomePage() {
         title="Why Choose Resolute Logistics"
       />
 
-      
+
     </div>
   );
 }
