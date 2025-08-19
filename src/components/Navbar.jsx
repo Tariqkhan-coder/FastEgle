@@ -395,21 +395,24 @@ const Navbar = () => {
 
                 <div className="flex justify-center space-x-4 mt-6">
                   <a
-                    href="#"
+                    href="https://www.fasteaglelogistics.com/"
+                    target='_blank'
                     className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="YouTube"
                   >
                     <Youtube className="w-5 h-5" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/company/resolute-logistics"
+                    target='_blank'
                     className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="LinkedIn"
                   >
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="#"
+                    href="https://www.facebook.com/resolute.logistics"
+                    target='_blank'
                     className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="Facebook"
                   >
