@@ -403,7 +403,7 @@ const Navbar = () => {
                     <Youtube className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://www.linkedin.com/company/resolute-logistics"
+                    href="https://www.linkedin.com/company/fasteaglelogistics/"
                     target='_blank'
                     className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="LinkedIn"
@@ -411,7 +411,7 @@ const Navbar = () => {
                     <Linkedin className="w-5 h-5" />
                   </a>
                   <a
-                    href="https://www.facebook.com/resolute.logistics"
+                    href="https://www.facebook.com/share/1B8oC27S8m/?mibextid=wwXIfr"
                     target='_blank'
                     className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-3 rounded"
                     aria-label="Facebook"

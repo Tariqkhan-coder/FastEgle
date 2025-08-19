@@ -49,6 +49,9 @@ function HomePage() {
   const handleStartDispatchClick = () => {
     navigate('/prices');
   };
+  const handleStartDispatchClick1 = () => {
+    navigate('/register');
+  };
 
   useEffect(() => {
     AOS.init({
@@ -119,12 +122,18 @@ function HomePage() {
               We provide high-quality freight dispatch service for interstate
               carriers and fleet owners in the USA and Canada
             </p>
-            <div className="text-center lg:text-left">
+            <div className="flex gap-6 lg:text-left">
               <button
                 className="px-6 sm:px-8 py-3 bg-orange-400 text-white rounded-full text-base sm:text-lg shadow-lg hover:bg-orange-500 transition duration-300 cursor-pointer"
                 onClick={handleStartDispatchClick}
               >
                 Start Trucking Dispatch
+              </button>
+              <button
+                className="px-6 sm:px-8 py-3 bg-orange-400 text-white rounded-full text-base sm:text-lg shadow-lg hover:bg-orange-500 transition duration-300 cursor-pointer"
+                onClick={handleStartDispatchClick1}
+              >
+                Registration
               </button>
             </div>
           </div>
@@ -148,7 +157,7 @@ function HomePage() {
                 </div>
                 <div className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded">
                   <a
-                    href="https://www.linkedin.com/company/resolute-logistics"
+                    href="https://www.linkedin.com/company/fasteaglelogistics/"
                     className="text-white"
                     target='_blank'
                     aria-label="LinkedIn Profile"
@@ -158,7 +167,7 @@ function HomePage() {
                 </div>
                 <div className="bg-orange-400 text-white hover:bg-orange-500 transition-colors duration-200 p-2 sm:p-3 rounded">
                   <a
-                    href="https://www.facebook.com/resolute.logistics"
+                    href="https://www.facebook.com/share/1B8oC27S8m/?mibextid=wwXIfr"
                     className="text-white"
                     target='_blank'
                     aria-label="Facebook Page"
