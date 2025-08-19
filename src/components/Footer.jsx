@@ -142,7 +142,7 @@ const Footer = () => {
                   href="mailto:hello@resolute-logistics.com"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
                 >
-                  hello@resolute-logistics.com
+                 info@FastEagleLogistics.com
                 </a>
               </div>
 
