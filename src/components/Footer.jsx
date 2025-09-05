@@ -128,7 +128,7 @@ const Footer = () => {
             </div>
 
             <div className="mr-16 text-right flex-shrink-0">
-              <div className="text-orange-400 text-base font-semibold mb-4">USA, CANADA</div>
+              <div className="text-orange-400 text-base font-semibold mb-4">1120 Santa Cleotilde Laredo TX , 78045</div>
               <div className="mb-4">
                 <a
                   href="tel:+19568579996"
@@ -139,7 +139,7 @@ const Footer = () => {
               </div>
               <div className="mb-6">
                 <a
-                  href="mailto:hello@resolute-logistics.com"
+                  href="mailto:info@fasteaglelogistics.com"
                   className="text-white hover:text-orange-400 transition-colors duration-200 text-base block"
                 >
                  info@FastEagleLogistics.com
